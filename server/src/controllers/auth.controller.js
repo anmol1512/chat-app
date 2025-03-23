@@ -32,10 +32,8 @@ const signup = async (request,response) =>{
             }
         );
         if(newUser){
-            // Generate JWT token
-            const token = generateToken(newUser._id, response)
-            await newUser.save();
-
+            await newUser.save(); //  Store it in MongoDB Collection
+            const token = generateToken(newUser._id, response) // if data is store in DB then only generate JWT token
             response.status(201).json({
                 message: "New user created",
                 id: newUser._id,
