@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import authRoute from "./routes/auth.route.js";
 import connectDB from "./lib/db.js"
+import cookieParser from "cookie-parser"
 
 
 dotenv.config() // Load env variables into process.env
@@ -17,5 +18,6 @@ const startServer = async () => {
 }
 
 app.use(express.json()); // Built-in middleware which parse json request and loads it into request.body
+app.use(cookieParser()); // Built-in middleware which parse cookie and loads it into request.cookies
 app.use("/api/auth", authRoute); // Authentication routes
-startServer(); // Connecting to MongoDB and starting the server
+await startServer(); // Connecting to MongoDB and starting the server
