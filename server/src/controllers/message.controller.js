@@ -47,7 +47,7 @@ const sendMessage = async (request, response) => {
         let imageURL = "";
         if (image){
             const imageResponse = await cloudinary.uploader.upload(image);
-            if(!imageResponse) return response.status(400).json({message: "ERROR: Error in uploading image"};)
+            if(!imageResponse) return response.status(400).json({message: "ERROR: Error in uploading image"});
             imageURL = imageResponse.secure_url;
         }
        
