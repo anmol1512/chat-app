@@ -115,5 +115,16 @@ const updateProfile = async (request, response) => {
         console.log("Error in updateProfile controller: " + error.message);
         response.status(500).json({message: "Internal Server Error"});
     }
-}
-export {signup, login, logout, updateProfile};
+};
+
+const checkAuth = (request, response) => {
+    try{
+        response.status(200).json(request.user);
+    }
+    catch(error){
+        console.log("Error in checkAuth controller: " + error.message);
+        response.status(500).json({message: "Internal Server Error"});
+    }
+};
+
+export {signup, login, logout, updateProfile, checkAuth};
