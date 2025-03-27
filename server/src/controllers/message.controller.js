@@ -1,4 +1,3 @@
-import { request, response } from "express";
 import { messageModel } from "../model/message.model.js";
 import { userModel } from "../model/user.model.js";
 import { cloudinary } from "../lib/cloudinary.js";
